@@ -1,3 +1,7 @@
 ---
 token: token
-chat_id: 0 
+chat_id: 0
+aide:
+  config_path: "/home/user/aide/aide.conf"
+  database_in: "/home/user/aide/aide.db"
+  database_out: "/home/user/aude/aide.db.new"
