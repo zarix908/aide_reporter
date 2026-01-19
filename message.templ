@@ -1,0 +1,51 @@
+📝 *AIDE Report*
+Version: `{{ .AideVersion }}`
+Time: `{{ .StartTime }}` — `{{ .EndTime }}`
+
+*Entries summary*
+Total: `{{ .EntriesNumber.Total }}`
+Added: `{{ .EntriesNumber.Added }}`
+Changed: `{{ .EntriesNumber.Changed }}`
+Removed: `{{ .EntriesNumber.Removed }}`
+
+{{- if .Added }}
+
+🟢 *Added files*
+{{- range $key, $value := .Added }}
+• `{{ $key }}`
+{{- end }}
+{{- end }}
+
+{{- if .Changed }}
+
+🟡 *Changed files*
+{{- range $key, $value := .Changed }}
+• `{{ $key }}`
+{{- end }}
+{{- end }}
+
+{{- if .Removed }}
+
+🔴 *Removed files*
+{{- range $key, $value := .Removed }}
+• `{{ $key }}`
+{{- end }}
+{{- end }}
+
+{{- if .Details }}
+
+*Details*
+{{- range $key, $value := .Details }}
+`{{ $key }}`
+Old hash: `{{ $value.Sha256.Old }}`
+New hash: `{{ $value.Sha256.New }}`
+{{- end }}
+{{- end }}
+
+{{- if .Databases }}
+
+*Databases*
+{{- range $key, $value := .Databases }}
+• `{{ $key }}`: `{{ $value.Sha256 }}`
+{{- end }}
+{{- end }}
